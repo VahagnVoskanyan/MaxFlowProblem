@@ -6,7 +6,7 @@
         {
             MaxFlow m = new MaxFlow();
 
-            Console.WriteLine("--> Example 1:\n");
+            Console.WriteLine("--> Example 1:");
             int[,] graph1 = new int[,] {
             { 0, 24, 16, 0, 0, 0 },
             { 0, 0, 12, 15, 0, 0 },
@@ -19,7 +19,10 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + m.EdmondsKarp(graph1, t: graph1.GetLength(0) - 1));
 
-            Console.WriteLine("\n\n--> Example 2:\n");
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + m.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));
+
+            Console.WriteLine("\n\n--> Example 2:");
             int[,] graph2 = new int[,] {
             { 0, 1000, 1000, 0 },
             { 0, 0, 1, 1000 },
@@ -58,6 +61,9 @@
 
             Console.WriteLine("\nThe maximum possible flow is: "
                               + m.EdmondsKarp(graph, t: graph.GetLength(0) - 1));
+
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + m.FordFulkerson(graph, t: graph.GetLength(0) - 1));
         }
     }
 
