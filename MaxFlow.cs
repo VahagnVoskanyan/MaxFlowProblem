@@ -5,7 +5,7 @@
         // Finds "Augmenting path" and stores it
         // rGraph = "residual" Graph
         // Breadth First Search
-        private static bool bfs(int[,] rGraph, int s, int t, int[] parent)
+        private static bool bfs(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
 
@@ -22,7 +22,7 @@
             // Standard BFS Loop
             while (notExplored.Count != 0)
             {
-                //Console.WriteLine("-->While loop ");
+                repeat++;
 
                 // Gets first item and deletes it
                 int u = notExplored.Dequeue();
@@ -44,12 +44,11 @@
                     }
                 }
             }
-
             // If there is no "Augmenting paths"
             return false;
         }
 
-        private static bool DfsFlowPath(int[,] rGraph, int s, int t, int[] parent)
+        private static bool DfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
 
@@ -65,6 +64,8 @@
 
             while (stack.Count > 0)
             {
+                repeat++;
+
                 // Gets first item
                 int u = stack.Pop();
 
@@ -85,7 +86,6 @@
                     }
                 }
             }
-
             // If there is no "Augmenting paths"
             return false;
         }
@@ -117,20 +117,18 @@
 
             // Create a residual graph with same capacities as in original graph
             int[,] rGraph = new int[V, V];
-
-            for (u = 0; u < V; u++)
-                for (v = 0; v < V; v++)
-                    rGraph[u, v] = graph[u, v];
+            Array.Copy(graph, rGraph, graph.Length);
 
             // This array is filled by BFS and to store path
             int[] parent = new int[V];
 
             int max_flow = 0; // There is no flow initially
 
+            int repeat = 0; // Saves while count in BFS
             // Augment the flow while there is path from source to sink
-            while (bfs(rGraph, s, t, parent))
+            while (bfs(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path' ");
+                Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
                 // Finds edge with minimum capavity in 'parent' path
@@ -164,6 +162,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
+            Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[graph.Length];
@@ -183,7 +182,6 @@
                     }
                 }
             }
-
             // Return the overall flow
             return max_flow;
         }
@@ -197,20 +195,18 @@
 
             // Create a residual graph with same capacities as in original graph
             int[,] rGraph = new int[V, V];
-
-            for (u = 0; u < V; u++)
-                for (v = 0; v < V; v++)
-                    rGraph[u, v] = graph[u, v];
+            Array.Copy(graph, rGraph, graph.Length);
 
             // This array is filled by DFS and to store path
             int[] parent = new int[V];
 
             int max_flow = 0; // There is no flow initially
 
+            int repeat = 0; // Saves while count in DFS
             // Augment the flow while there is path from source to sink
-            while (DfsFlowPath(rGraph, s, t, parent))
+            while (DfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path' ");
+                Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
                 // Finds edge with minimum capavity in 'parent' path
@@ -244,6 +240,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
+            Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[V];
@@ -263,7 +260,6 @@
                     }
                 }
             }
-
             // Return the overall flow
             return max_flow;
         }
