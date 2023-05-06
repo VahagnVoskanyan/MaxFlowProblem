@@ -190,7 +190,7 @@
                 {
                     u = parent[v];
                     newGraph[u, v]--;
-                    newGraph[v, u]++;
+                    //newGraph[v, u]++; // It's not uses.. Yes??
                 }
 
                 // Add path flow to overall flow
