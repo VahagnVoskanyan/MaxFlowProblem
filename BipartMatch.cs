@@ -3,7 +3,7 @@
     internal class BipartMatch
     {
         // This function returns true if graph is Bipartite
-        private static bool IsBipartite(int[,] graph, int[] colorArr, int s = 0)
+        private bool IsBipartite(int[,] graph, int[] colorArr, int s = 0)
         {
             int V = graph.GetLength(0);
 
@@ -45,7 +45,7 @@
             return true;
         }
 
-        private static int[,] GraphFF(int[,] bpgraph)
+        private int[,] GraphFF(int[,] bpgraph)
         {
             int bp_V = bpgraph.GetLength(0);
 
@@ -102,7 +102,7 @@
         // Finds "Augmenting path" and stores it
         // rGraph = "residual" Graph
         // Breadth First Search
-        private static bool AugPathExists(int[,] rGraph, int[] parent)
+        private bool AugPathExists(int[,] rGraph, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
             int s = 0;

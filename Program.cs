@@ -62,7 +62,7 @@
 
             var maxBipartMatch = new BipartMatch();
 
-            Console.WriteLine("\n\n--> Example of MaxBipartMatching 11:");
+            Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
             // Bipartite graph
                              // 1, 2, 3, 4, 5, 6 
             int[,] graph11 = {{ 0, 1, 0, 0, 0, 1 }, //1
@@ -75,7 +75,7 @@
             Console.WriteLine("--> Maximum Bipartite Matching is: " +
                                maxBipartMatch.MaxBipartMatch(graph11));
 
-            Console.WriteLine("\n\n--> Example of MaxBipartMatching 12:");
+            Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 12:");
             // Non bipartite graph
                              // 1, 2, 3, 4, 5 
             int[,] graph12 = {{ 0, 1, 0, 0, 1 }, //1

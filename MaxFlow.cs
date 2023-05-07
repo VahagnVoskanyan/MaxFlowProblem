@@ -5,7 +5,7 @@
         // Finds "Augmenting path" and stores it
         // rGraph = "residual" Graph
         // Breadth First Search
-        private static bool bfs(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
+        private bool VfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
 
@@ -48,7 +48,7 @@
             return false;
         }
 
-        private static bool DfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
+        private bool DfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
 
@@ -96,7 +96,7 @@
         // values in visited[] must be false. We can also
         // use BFS to find reachable vertices. We use this
         // to find minimum cut
-        private static void DfsMinCut(int[,] rGraph, int s, bool[] visited)
+        private void DfsMinCut(int[,] rGraph, int s, bool[] visited)
         {
             visited[s] = true;
             for (int i = 0; i < rGraph.GetLength(0); i++)
@@ -126,7 +126,7 @@
 
             int repeat = 0; // Saves while count in BFS
             // Augment the flow while there is path from source to sink
-            while (bfs(rGraph, s, t, ref repeat, parent))
+            while (VfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
                 Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
