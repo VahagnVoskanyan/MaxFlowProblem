@@ -1,6 +1,6 @@
 ﻿namespace MaxFlowProblem
 {
-    public class MaxFlow
+    internal class MaxFlow
     {
         // Finds "Augmenting path" and stores it
         // rGraph = "residual" Graph

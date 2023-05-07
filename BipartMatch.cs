@@ -1,4 +1,4 @@
-﻿namespace MaxFlow
+﻿namespace MaxFlowProblem
 {
     internal class BipartMatch
     {
