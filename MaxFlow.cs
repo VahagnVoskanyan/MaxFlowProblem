@@ -5,7 +5,7 @@
         // Finds "Augmenting path" and stores it
         // rGraph = "residual" Graph
         // Breadth First Search
-        private bool VfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
+        private bool BfsFlowPath(int[,] rGraph, int s, int t, ref int repeat, int[] parent)
         {
             int V = rGraph.GetLength(0); // Number of vertices in graph
 
@@ -126,7 +126,7 @@
 
             int repeat = 0; // Saves while count in BFS
             // Augment the flow while there is path from source to sink
-            while (VfsFlowPath(rGraph, s, t, ref repeat, parent))
+            while (BfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
                 Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
