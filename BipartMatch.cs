@@ -112,17 +112,17 @@
             // Default value in C# is false
             bool[] visited = new bool[V];
 
-            // Create a queue, enqueue source vertex and mark source vertex as visited
-            Queue<int> notExplored = new Queue<int>();
-            notExplored.Enqueue(s);
+            // Create a stack, push source vertex and mark source vertex as visited
+            Stack<int> stack = new Stack<int>();
+            stack.Push(s);
             visited[s] = true;
             parent[s] = -1;
 
-            // Standard BFS Loop
-            while (notExplored.Count != 0)
+            // Standard DFS Loop
+            while (stack.Count != 0)
             {
                 // Gets first item and deletes it
-                int u = notExplored.Dequeue();
+                int u = stack.Pop();
 
                 for (int v = 0; v < V; v++)
                 {
@@ -136,7 +136,7 @@
                             return true;
                         }
 
-                        notExplored.Enqueue(v);
+                        stack.Push(v);
                         visited[v] = true;
                     }
                 }

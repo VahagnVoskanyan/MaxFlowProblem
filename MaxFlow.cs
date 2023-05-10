@@ -56,12 +56,12 @@
             // Default value in C# is false
             bool[] visited = new bool[V];
 
-            // Create a stacl=k, push source vertex and mark source vertex as visited
+            // Create a stack, push source vertex and mark source vertex as visited
             Stack<int> stack = new Stack<int>();
             stack.Push(s);
             visited[s] = true;
             parent[s] = -1;
-
+            
             while (stack.Count > 0)
             {
                 repeat++;
@@ -128,7 +128,8 @@
             // Augment the flow while there is path from source to sink
             while (BfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
+                Console.WriteLine("We found an 'Augmenting path'");
+                //Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
                 // Finds edge with minimum capavity in 'parent' path
@@ -162,7 +163,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
-            Console.WriteLine("While count: " + repeat);
+            //Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[graph.Length];
@@ -206,7 +207,8 @@
             // Augment the flow while there is path from source to sink
             while (DfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
+                Console.WriteLine("We found an 'Augmenting path'");
+                //Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
                 // Finds edge with minimum capavity in 'parent' path
@@ -240,7 +242,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
-            Console.WriteLine("While count: " + repeat);
+            //Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[V];

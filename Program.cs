@@ -6,7 +6,7 @@
         {
             MaxFlow maxFlowBy = new MaxFlow();
 
-            Console.WriteLine("--> Example 1:");
+            /*Console.WriteLine("--> Example 1:");
             int[,] graph1 = new int[,] {
             { 0, 24, 16, 0, 0, 0 },
             { 0, 0, 12, 15, 0, 0 },
@@ -19,9 +19,9 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph1, t: graph1.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));*/
 
-            Console.WriteLine("\n\n--> Example 2:");
+            /*Console.WriteLine("\n\n--> Example 2:");
             int[,] graph2 = new int[,] {
             { 0, 1000, 1000, 0 },
             { 0, 0, 1, 1000 },
@@ -32,9 +32,9 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph2, t: graph2.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph2, t: graph2.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph2, t: graph2.GetLength(0) - 1));*/
 
-            Console.WriteLine("\n\n--> Example 3:");
+            /*Console.WriteLine("\n\n--> Example 3:");
             int[,] graph3 = new int[,]
             {
                // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12
@@ -56,7 +56,7 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph3, t: graph3.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph3, t: graph3.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph3, t: graph3.GetLength(0) - 1));*/
 
 
 
@@ -64,7 +64,7 @@
 
             Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
             // Bipartite graph
-                             // 1, 2, 3, 4, 5, 6 
+            // 1, 2, 3, 4, 5, 6 
             int[,] graph11 = {{ 0, 1, 0, 0, 0, 1 }, //1
                               { 1, 0, 1, 0, 0, 0 }, //2
                               { 0, 1, 0, 1, 0, 0 }, //3
@@ -77,7 +77,7 @@
 
             Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 12:");
             // Non bipartite graph
-                             // 1, 2, 3, 4, 5 
+            // 1, 2, 3, 4, 5 
             int[,] graph12 = {{ 0, 1, 0, 0, 1 }, //1
                               { 1, 0, 1, 0, 0 }, //2
                               { 0, 1, 0, 1, 0 }, //3
@@ -91,9 +91,9 @@
             Console.Write("--> Insert number of vertices in graph: ");
             int V = Convert.ToInt32(Console.ReadLine());
             int[,] graph = new int[V, V];
-            for (int i = 0; i < V - 1; i++)
+            for (int i = 0; i < V ; i++)
             {
-                for (int j = 1; j < V; j++)
+                for (int j = 0; j < V; j++)
                 {
                     if (i != j)
                     {
@@ -112,12 +112,37 @@
                 Console.WriteLine();
             }
 
-            Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.EdmondsKarp(graph, t: graph.GetLength(0) - 1));
+            int number = -1;
+            while (number != 0)
+            {
+                Console.WriteLine("\nFord-Fulkerson => 1");
+                Console.WriteLine("Edmonds-karp => 2");
+                Console.WriteLine("Maximum Bipartite Matching => 3");
+                Console.WriteLine("If you want to exit the programm then write number 0");
+                Console.Write("--> Write the number of function you want to use : ");
+                number = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph, t: graph.GetLength(0) - 1));
+                switch (number)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        Console.WriteLine("\nThe maximum possible flow is: "
+                                  + maxFlowBy.FordFulkerson(graph, t: graph.GetLength(0) - 1));
+                        break;
+                    case 2:
+                        Console.WriteLine("\nThe maximum possible flow is: "
+                                  + maxFlowBy.EdmondsKarp(graph, t: graph.GetLength(0) - 1));
+                        break;
+                    case 3:
+                        Console.WriteLine("--> Maximum Bipartite Matching is: " +
+                                   maxBipartMatch.MaxBipartMatch(graph));
+                        break;
+                    default:
+                        Console.WriteLine("--> Function with that number is not specified !!");
+                        break;
+                }
+            }
         }
     }
-
 }
