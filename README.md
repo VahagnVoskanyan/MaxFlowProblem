@@ -18,4 +18,9 @@ FordFulkerson ֆունկցիան գտնում է մաքսիմալ հոսքը DFS
 "--> Write the number of function you want to use : " Այս տողի ժամանակ օգտատերը ընտրում է այն ֆունկցիայի համարը,
 որից ցանկանում է օգտվել և ստանում է պատասխան։ Տողը կրկնվում է այնքան ժամանակ մինչև ներմուծվի 0 արժեք։
 
-![Picture1](https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/73e03c9a-c326-4bae-8e3e-d28f67a95bad)
+<img src="https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/1acf194e-07e2-4929-99a6-b6600f9cb1bd" width="300" height="200">
+
+
+<br />
+Օրինակ այս գրաֆը ներմուծելու համար պետք է մութքագրել այսպես՝
+
