@@ -14,19 +14,21 @@
             bool[] visited = new bool[V];
 
             // Create a queue, enqueue source vertex and mark source vertex as visited
-            Queue<int> notExplored = new Queue<int>();
-            notExplored.Enqueue(s);
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(s);
             visited[s] = true;
             parent[s] = -1;
 
+            //int queueMaxSize = 0; //s
+
             // Standard BFS Loop
-            while (notExplored.Count != 0)
+            while (queue.Count != 0)
             {
                 repeat++;
 
                 // Gets first item and deletes it
-                int u = notExplored.Dequeue();
-
+                int u = queue.Dequeue();
+                //queueMaxSize = Math.Max(queueMaxSize, queue.Count()); //s
                 for (int v = 0; v < V; v++)
                 {
                     if (!visited[v] && rGraph[u, v] > 0)
@@ -36,10 +38,11 @@
                         // If we reach the sink
                         if (v == t)
                         {
+                            //Console.WriteLine("--> queue array size is: " + queueMaxSize); //s
                             return true;
                         }
 
-                        notExplored.Enqueue(v);
+                        queue.Enqueue(v);
                         visited[v] = true;
                     }
                 }
@@ -61,14 +64,17 @@
             stack.Push(s);
             visited[s] = true;
             parent[s] = -1;
-            
+
+            //int stackMaxSize = 0; //s
+
+            // Standard DFS Loop
             while (stack.Count > 0)
             {
                 repeat++;
 
                 // Gets first item
                 int u = stack.Pop();
-
+                //stackMaxSize = Math.Max(stackMaxSize, stack.Count()); //s
                 for (int v = 0; v < V; v++)
                 {
                     if (!visited[v] && rGraph[u, v] > 0)
@@ -78,6 +84,7 @@
                         // If we reach the sink
                         if (v == t)
                         {
+                            //Console.WriteLine("--> stack array size is: " + stackMaxSize); //s
                             return true;
                         }
 
@@ -163,7 +170,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
-            //Console.WriteLine("While count: " + repeat);
+            Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[graph.Length];
@@ -242,7 +249,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
-            //Console.WriteLine("While count: " + repeat);
+            Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
             bool[] isVisited = new bool[V];

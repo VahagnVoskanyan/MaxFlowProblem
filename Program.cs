@@ -8,11 +8,11 @@
 
             Console.WriteLine("--> Example 1:");
             int[,] graph1 = new int[,] {
-            { 0, 24, 16, 0, 0, 0 },
-            { 0, 0, 12, 15, 0, 0 },
-            { 0, 0, 0, 0, 19, 0 },
-            { 0, 0, 11, 0, 0, 19 },
-            { 0, 0, 0, 8, 0, 5 },
+            { 0, 10, 10, 0, 0, 0 },
+            { 0, 0, 2, 4, 8, 0 },
+            { 0, 0, 0, 0, 9, 0 },
+            { 0, 0, 11, 0, 0, 10 },
+            { 0, 0, 0, 6, 0, 10 },
             { 0, 0, 0, 0, 0, 0 }
             };
 
@@ -21,7 +21,7 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));
 
-            Console.WriteLine("\n\n--> Example 2:");
+            /*Console.WriteLine("\n\n--> Example 2:");
             int[,] graph2 = new int[,] {
             { 0, 1000, 1000, 0 },
             { 0, 0, 1, 1000 },
@@ -32,9 +32,9 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph2, t: graph2.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph2, t: graph2.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph2, t: graph2.GetLength(0) - 1));*/
 
-            Console.WriteLine("\n\n--> Example 3:");
+            /*Console.WriteLine("\n\n--> Example 3:");
             int[,] graph3 = new int[,]
             {
                // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12
@@ -56,13 +56,53 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph3, t: graph3.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph3, t: graph3.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph3, t: graph3.GetLength(0) - 1));*/
 
+            /*Console.WriteLine("\n\n--> Example 4:");
+            int[,] graph4 = new int[,]
+            {
+               // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11
+                { 0, 15, 25, 35, 0, 0, 0, 0, 0, 0, 0, 0 }, //0   
+                { 0, 0, 0, 7, 0, 8, 0, 0, 0, 0, 8, 8 }, //1
+                { 0, 0, 0, 0, 8, 0, 0, 0, 7, 0, 7, 0 }, //2
+                { 0, 0, 0, 0, 8, 0, 9, 0, 9, 0, 0, 7 }, //3
+                { 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 8, 0 }, //4
+                { 0, 0, 0, 3, 7, 0, 4, 0, 12, 15, 3, 1 }, //5
+                { 0, 7, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0 }, //6
+                { 0, 0, 1, 0, 0, 7, 0, 0, 0, 3, 0, 10 }, //7
+                { 0, 0, 0, 9, 0, 7, 0, 0, 3, 7, 0, 10 }, //8
+                { 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 0, 20 }, //9
+                { 0, 0, 10, 0, 0, 8, 0, 0, 7, 0, 0, 10 }, //10
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }  //11
+            };
 
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.EdmondsKarp(graph4, t: graph4.GetLength(0) - 1));
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.FordFulkerson(graph4, t: graph4.GetLength(0) - 1));*/
+
+            // An example when DFS stuck on loop
+            /*Console.WriteLine("\n\n--> Example 5:");
+            int[,] graph5 = new int[,]
+            {
+               // 0, 1,  2,  3,  4,  5,  6, 
+                { 0, 10, 0,  0,  20, 0,  0  }, //0   
+                { 0, 0,  10, 0,  0,  0,  0  }, //1
+                { 0, 0,  0,  10, 0,  0,  0  }, //2
+                { 0, 10, 0,  0,  0,  0,  0  }, //3
+                { 0, 0,  0,  0,  0,  20, 0  }, //4
+                { 0, 0,  0,  0,  0,  0,  20 }, //5
+                { 0, 0,  0,  0,  0,  0,  0  }, //6
+            };
+
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.EdmondsKarp(graph5, t: graph5.GetLength(0) - 1));
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.FordFulkerson(graph5, t: graph5.GetLength(0) - 1));*/
 
             var maxBipartMatch = new BipartMatch();
 
-            Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
+            /*Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
             // Bipartite graph
                              // 1, 2, 3, 4, 5, 6 
             int[,] graph11 = {{ 0, 1, 0, 0, 0, 1 }, //1
@@ -85,7 +125,7 @@
                               { 1, 0, 0, 1, 0 }};//5
 
             Console.WriteLine("--> Maximum Bipartite Matching is: " +
-                               maxBipartMatch.MaxBipartMatch(graph12));
+                               maxBipartMatch.MaxBipartMatch(graph12));*/
 
             Console.WriteLine("\nYou can write your matrix here: ");
             Console.Write("--> Insert number of vertices in graph: ");
