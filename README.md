@@ -23,4 +23,8 @@ FordFulkerson ֆունկցիան գտնում է մաքսիմալ հոսքը DFS
 
 <br />
 Օրինակ այս գրաֆը ներմուծելու համար պետք է մութքագրել այսպես՝
+<br />
+![image](https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/e7a2bc01-3328-45b2-b4d8-1e8af1baa083)
+
+
 
