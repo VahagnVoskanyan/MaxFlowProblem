@@ -14,3 +14,4 @@ FordFulkerson ֆունկցիան գտնում է մաքսիմալ հոսքը DFS
 
 ![image](https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/3d32188f-1f41-45f7-ba96-4745d1b572c7)
 
+![Picture1](https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/73e03c9a-c326-4bae-8e3e-d28f67a95bad)
