@@ -18,13 +18,23 @@ FordFulkerson ֆունկցիան գտնում է մաքսիմալ հոսքը DFS
 "--> Write the number of function you want to use : " Այս տողի ժամանակ օգտատերը ընտրում է այն ֆունկցիայի համարը,
 որից ցանկանում է օգտվել և ստանում է պատասխան։ Տողը կրկնվում է այնքան ժամանակ մինչև ներմուծվի 0 արժեք։
 
+<br />
 <img src="https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/1acf194e-07e2-4929-99a6-b6600f9cb1bd" width="300" height="200">
-
-
+<br />
 <br />
 Օրինակ այս գրաֆը ներմուծելու համար պետք է մութքագրել այսպես՝
+<br /><br />
+<img src="https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/e7a2bc01-3328-45b2-b4d8-1e8af1baa083" width="600" height="600"> 
 <br />
-![image](https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/e7a2bc01-3328-45b2-b4d8-1e8af1baa083)
+<br />
+Enter սեղմելուց հետո ծրագիրը ցույց կտա ստացված մատրիցը <br />
+Եվ կբացվի ընտրության հնարավորություն, որտեղ ընտրելով համապատասխան ֆունկցիայի համարը կստանանք պատասխան՝
+<br />
+<br />
+<img src="https://github.com/VahagnVoskanyan/MaxFlowProblem/assets/110464486/60994066-8275-4aba-a409-b038001b9b91" width="700" height="800">
+<br />
+<br />
+Որտող "While Count"-ը ցույց է տալիս դիտարկված կողերի քանակը։
 
 
 
