@@ -127,8 +127,8 @@
             Console.WriteLine("--> Maximum Bipartite Matching is: " +
                                maxBipartMatch.MaxBipartMatch(graph12));*/
 
-            Console.WriteLine("\nYou can write your matrix here: ");
-            Console.Write("--> Insert number of vertices in graph: ");
+            Console.WriteLine("\nInsert your network here: ");
+            Console.Write("--> Insert number of vertices in network: ");
             int V = Convert.ToInt32(Console.ReadLine());
             int[,] graph = new int[V, V];
             for (int i = 0; i < V ; i++)
