@@ -181,7 +181,7 @@
             // Augment the flow while there is path from source to sink
             while (AugPathExists(newGraph, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path' ");
+                //Console.WriteLine("We found an 'Augmenting path' ");
                 var path = new List<int>();   // To show the path
 
                 // update residual capacities of the edges and
@@ -196,7 +196,7 @@
                 // Add path flow to overall flow
                 max_flow++;
 
-                Console.WriteLine($"Maximum reached flow is: {max_flow}\n");
+                //Console.WriteLine($"Maximum reached flow is: {max_flow}\n");
             }
             // Return the overall flow
             return max_flow;
