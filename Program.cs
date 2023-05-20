@@ -127,6 +127,7 @@
             Console.WriteLine("--> Maximum Bipartite Matching is: " +
                                maxBipartMatch.MaxBipartMatch(graph12));*/
 
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\nInsert your network here: ");
             Console.Write("--> Insert number of vertices in network: ");
             int V = Convert.ToInt32(Console.ReadLine());
@@ -155,6 +156,7 @@
             int number = -1;
             while (number != 0)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\nFord-Fulkerson => 1");
                 Console.WriteLine("Edmonds-karp => 2");
                 Console.WriteLine("Maximum Bipartite Matching => 3");

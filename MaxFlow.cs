@@ -26,9 +26,9 @@
             {
                 repeat++;
 
+                //queueMaxSize = Math.Max(queueMaxSize, queue.Count()); //s
                 // Gets first item and deletes it
                 int u = queue.Dequeue();
-                //queueMaxSize = Math.Max(queueMaxSize, queue.Count()); //s
                 for (int v = 0; v < V; v++)
                 {
                     if (!visited[v] && rGraph[u, v] > 0)
@@ -72,9 +72,9 @@
             {
                 repeat++;
 
+                //stackMaxSize = Math.Max(stackMaxSize, stack.Count); //s
                 // Gets first item
                 int u = stack.Pop();
-                //stackMaxSize = Math.Max(stackMaxSize, stack.Count()); //s
                 for (int v = 0; v < V; v++)
                 {
                     if (!visited[v] && rGraph[u, v] > 0)
@@ -117,6 +117,7 @@
 
         public int EdmondsKarp(int[,] graph, int t, int s = 0)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n--> Edmonds-Karp algorithm\n");
 
             int V = graph.GetLength(0); // Number of vertices in graph
@@ -148,12 +149,14 @@
                     path_flow = Math.Min(path_flow, rGraph[u, v]);
                 }
 
+                Console.ForegroundColor = ConsoleColor.Green;
                 path.Reverse();
                 foreach (var item in path)
                 {
                     Console.Write($"{item}->");
                 }
                 Console.WriteLine($"{t}");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Minimum capacity in path is: {path_flow}");
 
                 // update residual capacities of the edges and
@@ -178,6 +181,7 @@
 
             Console.WriteLine("\nMinimum cut edges: ");
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
             // Prints all edges that are from a reachable vertex to
             // non-reachable vertex in the original graph    
             for (int i = 0; i < graph.GetLength(0); i++)
@@ -190,12 +194,14 @@
                     }
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Red;
             // Return the overall flow
             return max_flow;
         }
 
         public int FordFulkerson(int[,] graph, int t, int s = 0)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n--> Ford-Fulkerson algorithm\n");
 
             int V = graph.GetLength(0); // Number of vertices in graph
@@ -227,12 +233,14 @@
                     path_flow = Math.Min(path_flow, rGraph[u, v]);
                 }
 
+                Console.ForegroundColor = ConsoleColor.Green;
                 path.Reverse();
                 foreach (var item in path)
                 {
                     Console.Write($"{item}->");
                 }
                 Console.WriteLine($"{t}");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Minimum capacity in path is: {path_flow}");
 
                 // update residual capacities of the edges and
@@ -249,6 +257,7 @@
 
                 Console.WriteLine($"Maximum reached flow: {max_flow}\n");
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("While count: " + repeat);
 
             // Flow is maximum now, find vertices reachable from s    
@@ -257,6 +266,7 @@
 
             Console.WriteLine("\nMinimum cut edges: ");
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
             // Prints all edges that are from a reachable vertex to
             // non-reachable vertex in the original graph    
             for (int i = 0; i < graph.GetLength(0); i++)
@@ -269,6 +279,7 @@
                     }
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Red;
             // Return the overall flow
             return max_flow;
         }
