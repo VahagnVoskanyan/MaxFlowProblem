@@ -1,4 +1,6 @@
-﻿namespace MaxFlowProblem
+﻿using System.IO;
+
+namespace MaxFlowProblem
 {
     internal class BipartMatch
     {
@@ -21,14 +23,14 @@
                 int u = queue.Dequeue();
 
                 // Return false if there is a self-loop
-                if (graph[u, u] == 1)
+                if (graph[u, u] != 0)
                     return false;
 
                 // Find all non-colored adjacent vertices
-                for (int v = 0; v < V; ++v)
+                for (int v = 0; v < V; v++)
                 {
                     // An edge from u to v exists and destination v is not colored
-                    if (graph[u, v] == 1 && colorArr[v] == -1)
+                    if (graph[u, v] != 0 && colorArr[v] == -1)
                     {
                         // Assign alternate color to this adjacent v of u
                         colorArr[v] = 1 - colorArr[u];
@@ -37,7 +39,7 @@
 
                     // An edge from u to v exists and destination v
                     // is colored with same color as u
-                    else if (graph[u, v] == 1 && colorArr[v] == colorArr[u])
+                    else if (graph[u, v] != 0 && colorArr[v] == colorArr[u])
                         return false;
                 }
             }
@@ -51,7 +53,7 @@
 
             // To serparate graph vertices into 2 groups
             int[] colorArr = new int[bp_V];
-            for (int i = 0; i < bp_V; ++i)
+            for (int i = 0; i < bp_V; i++)
                 colorArr[i] = -1;
 
             // Cheks if the graph is bipartite
@@ -63,8 +65,11 @@
 
                 int s = 0;
                 int t = new_V - 1;
+                var L = new List<int>();
+                var R = new List<int>();
 
                 // Creates edges from s to vertexes
+                // Saves L and R subsets
                 // bp_V == colorArr.Length
                 for (int i = 0; i < bp_V; i++)
                 {
@@ -72,15 +77,31 @@
                     // connect it with source
                     if (colorArr[i] == 1)
                     {
+                        L.Add(i);
                         newGraph[s, i + 1] = 1;
                     }
                     // If vertex color is 0 we
                     // connect it with sink
                     else
                     {
+                        R.Add(i);
                         newGraph[i + 1, t] = 1;
                     }
                 }
+
+                // Show L and R subsets
+                Console.WriteLine("\nTwo subsets of bipartite graph");
+                Console.Write("L = {");
+                for (int i = 0; i < L.Count - 1; i++)
+                {
+                    Console.Write(L[i] + ",");
+                }
+                Console.Write(L[^1] + "} R = {");
+                for (int i = 0; i < R.Count - 1; i++)
+                {
+                    Console.Write(R[i] + ",");
+                }
+                Console.WriteLine(R[^1] + "}");
 
                 // Creates edges from bipartite graph
                 for (int i = 0; i < bp_V; i++)
@@ -147,6 +168,7 @@
 
         public int MaxBipartMatch(int[,] graph)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             var newGraph = GraphFF(graph);
 
             // If isn't bipartite
@@ -160,7 +182,7 @@
             int t = V - 1;     // sink
 
             // Represents the new graph
-            Console.WriteLine("\n--> Your new matrix with source and sink is: ");
+            /*Console.WriteLine("\n--> Your new matrix with source and sink is: ");
             for (int i = 0; i < V; i++)
             {
                 for (int j = 0; j < V; j++)
@@ -168,7 +190,7 @@
                     Console.Write($"{newGraph[i, j]} ");
                 }
                 Console.WriteLine();
-            }
+            }*/
             Console.WriteLine();
 
             int u, v;
@@ -178,11 +200,22 @@
 
             int max_flow = 0; // There is no flow initially
 
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("The matched edges");
             // Augment the flow while there is path from source to sink
             while (AugPathExists(newGraph, parent))
             {
                 //Console.WriteLine("We found an 'Augmenting path' ");
                 var path = new List<int>();   // To show the path
+
+                // Shows matched edges
+                for (v = t; v != s; v = parent[v])
+                {
+                    u = parent[v];
+                    path.Insert(0, u);
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{path[1] - 1} - {path[2] - 1}"); // We didn't reverse the 'path'
 
                 // update residual capacities of the edges and
                 // reverse edges along the path
@@ -198,6 +231,8 @@
 
                 //Console.WriteLine($"Maximum reached flow is: {max_flow}\n");
             }
+
+            Console.ForegroundColor = ConsoleColor.Red;
             // Return the overall flow
             return max_flow;
         }

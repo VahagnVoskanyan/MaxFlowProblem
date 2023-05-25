@@ -136,7 +136,7 @@
             // Augment the flow while there is path from source to sink
             while (BfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path'");
+                Console.WriteLine("An 'Augmenting path' found");
                 //Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
@@ -145,19 +145,18 @@
                 for (v = t; v != s; v = parent[v])
                 {
                     u = parent[v];
-                    path.Add(u);
+                    path.Insert(0, u);
                     path_flow = Math.Min(path_flow, rGraph[u, v]);
                 }
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                path.Reverse();
                 foreach (var item in path)
                 {
                     Console.Write($"{item}->");
                 }
                 Console.WriteLine($"{t}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Minimum capacity in path is: {path_flow}");
+                Console.WriteLine($"Minimum capacity in path: {path_flow}");
 
                 // update residual capacities of the edges and
                 // reverse edges along the path
@@ -194,6 +193,7 @@
                     }
                 }
             }
+
             Console.ForegroundColor = ConsoleColor.Red;
             // Return the overall flow
             return max_flow;
@@ -220,7 +220,7 @@
             // Augment the flow while there is path from source to sink
             while (DfsFlowPath(rGraph, s, t, ref repeat, parent))
             {
-                Console.WriteLine("We found an 'Augmenting path'");
+                Console.WriteLine("An 'Augmenting path' found");
                 //Console.WriteLine("We found an 'Augmenting path', while count is: " + repeat);
                 var path = new List<int>();   // To show the path
 
@@ -241,7 +241,7 @@
                 }
                 Console.WriteLine($"{t}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Minimum capacity in path is: {path_flow}");
+                Console.WriteLine($"Minimum capacity in path: {path_flow}");
 
                 // update residual capacities of the edges and
                 // reverse edges along the path
@@ -279,6 +279,7 @@
                     }
                 }
             }
+
             Console.ForegroundColor = ConsoleColor.Red;
             // Return the overall flow
             return max_flow;

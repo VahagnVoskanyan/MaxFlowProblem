@@ -6,6 +6,7 @@
         {
             MaxFlow maxFlowBy = new MaxFlow();
 
+            /*Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("--> Example 1:");
             int[,] graph1 = new int[,] {
             { 0, 10, 10, 0, 0, 0 },
@@ -19,8 +20,9 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.EdmondsKarp(graph1, t: graph1.GetLength(0) - 1));
             Console.WriteLine("\nThe maximum possible flow is: "
-                              + maxFlowBy.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));
+                              + maxFlowBy.FordFulkerson(graph1, t: graph1.GetLength(0) - 1));*/
 
+            Console.ForegroundColor = ConsoleColor.White;
             /*Console.WriteLine("\n\n--> Example 2:");
             int[,] graph2 = new int[,] {
             { 0, 1000, 1000, 0 },
@@ -34,6 +36,7 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.FordFulkerson(graph2, t: graph2.GetLength(0) - 1));*/
 
+            Console.ForegroundColor = ConsoleColor.White;
             /*Console.WriteLine("\n\n--> Example 3:");
             int[,] graph3 = new int[,]
             {
@@ -58,6 +61,7 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.FordFulkerson(graph3, t: graph3.GetLength(0) - 1));*/
 
+            Console.ForegroundColor = ConsoleColor.White;
             /*Console.WriteLine("\n\n--> Example 4:");
             int[,] graph4 = new int[,]
             {
@@ -81,6 +85,7 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.FordFulkerson(graph4, t: graph4.GetLength(0) - 1));*/
 
+            Console.ForegroundColor = ConsoleColor.White;
             // An example when DFS stuck on loop
             /*Console.WriteLine("\n\n--> Example 5:");
             int[,] graph5 = new int[,]
@@ -100,9 +105,43 @@
             Console.WriteLine("\nThe maximum possible flow is: "
                               + maxFlowBy.FordFulkerson(graph5, t: graph5.GetLength(0) - 1));*/
 
+            /*Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("--> Example 6:");
+            int[,] graph6 = new int[,] {
+            { 0, 10, 5, 0 },
+            { 0, 0, 2, 8 },
+            { 0, 0, 0, 9 },
+            { 0, 0, 0, 0 }
+            };
+
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.EdmondsKarp(graph6, t: graph6.GetLength(0) - 1));
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.FordFulkerson(graph6, t: graph6.GetLength(0) - 1));*/
+
+            /*Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("--> Example 7:");
+            int[,] graph7 = new int[,] {
+            { 0, 16, 13, 0, 0, 0 },
+            { 0, 0, 0, 12, 0, 0 },
+            { 0, 4, 0, 0, 14, 0 },
+            { 0, 0, 9, 0, 0, 20 },
+            { 0, 0, 0, 7, 0, 4 },
+            { 0, 0, 0, 0, 0, 0 }
+            };
+
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.EdmondsKarp(graph7, t: graph7.GetLength(0) - 1));
+            Console.WriteLine("\nThe maximum possible flow is: "
+                              + maxFlowBy.FordFulkerson(graph7, t: graph7.GetLength(0) - 1));*/
+
             var maxBipartMatch = new BipartMatch();
 
-            /*Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
+            /*Console.WriteLine("--> Maximum Bipartite Matching is: " +
+                               maxBipartMatch.MaxBipartMatch(graph6));*/
+
+            /*Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 11:");
             // Bipartite graph
                              // 1, 2, 3, 4, 5, 6 
             int[,] graph11 = {{ 0, 1, 0, 0, 0, 1 }, //1
@@ -112,9 +151,10 @@
                               { 0, 0, 0, 1, 0, 1 }, //5
                               { 1, 0, 0, 0, 1, 0 }};//6
 
-            Console.WriteLine("--> Maximum Bipartite Matching is: " +
+            Console.WriteLine("\n--> Maximum Bipartite Matching is: " +
                                maxBipartMatch.MaxBipartMatch(graph11));
 
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 12:");
             // Non bipartite graph
                              // 1, 2, 3, 4, 5 
@@ -124,8 +164,23 @@
                               { 0, 0, 1, 0, 1 }, //4
                               { 1, 0, 0, 1, 0 }};//5
 
-            Console.WriteLine("--> Maximum Bipartite Matching is: " +
+            Console.WriteLine("\n--> Maximum Bipartite Matching is: " +
                                maxBipartMatch.MaxBipartMatch(graph12));*/
+
+            /*Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n\n--> Example of Maximum Bipartite Matching 13:");
+            // Bipartite graph
+                             // 1, 2, 3, 4, 5, 6, 7
+            int[,] graph13 = {{ 0, 0, 1, 0, 1, 1, 1 }, //1
+                              { 0, 0, 1, 0, 1, 1, 0 }, //2
+                              { 1, 1, 0, 1, 0, 0, 0 }, //3
+                              { 0, 0, 0, 0, 1, 1, 1 }, //4
+                              { 1, 1, 0, 1, 0, 0, 0 }, //5
+                              { 1, 1, 0, 1, 0, 0, 0 }, //6
+                              { 1, 0, 0, 1, 0, 0, 0 }};//7
+
+            Console.WriteLine("\n--> Maximum Bipartite Matching is: " +
+                               maxBipartMatch.MaxBipartMatch(graph13));*/
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\nInsert your network here: ");
@@ -169,19 +224,19 @@
                     case 0:
                         break;
                     case 1:
-                        Console.WriteLine("\nThe maximum possible flow is: "
+                        Console.WriteLine("\n--> The maximum possible flow is: "
                                   + maxFlowBy.FordFulkerson(graph, t: graph.GetLength(0) - 1));
                         break;
                     case 2:
-                        Console.WriteLine("\nThe maximum possible flow is: "
+                        Console.WriteLine("\n--> The maximum possible flow is: "
                                   + maxFlowBy.EdmondsKarp(graph, t: graph.GetLength(0) - 1));
                         break;
                     case 3:
-                        Console.WriteLine("--> Maximum Bipartite Matching is: " +
+                        Console.WriteLine("\n--> Maximum Bipartite Matching is: " +
                                    maxBipartMatch.MaxBipartMatch(graph));
                         break;
                     default:
-                        Console.WriteLine("--> Function with that number is not specified !!");
+                        Console.WriteLine("\n--> Function with that number is not specified !!");
                         break;
                 }
             }
